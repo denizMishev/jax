@@ -1,7 +1,11 @@
+import { Header } from "./components/Header";
+
 function App() {
   return (
     <>
-      <div>text editor</div>
+      <div className="text-1xl">
+        <Header></Header>
+      </div>
     </>
   );
 }
