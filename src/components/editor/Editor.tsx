@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 import { TextPanel } from "./TextPanel";
 import { PreviewPanel } from "./PreviewPanel";
@@ -13,7 +14,10 @@ export function Editor() {
     setText(newText);
 
     const html = marked(newText);
-    setHtmlContent(html);
+
+    const sanitizedHtml = DOMPurify.sanitize(html as string);
+
+    setHtmlContent(sanitizedHtml as string);
   };
 
   return (
